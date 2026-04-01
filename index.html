@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Highest-Grossing Films of All Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-content">
+      <a href="#" class="nav-logo">FilmStats</a>
+      <ul class="nav-links">
+        <li><a href="#stats">Stats</a></li>
+        <li><a href="#data">Data</a></li>
+        <li><a href="#charts">Charts</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Dark</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Highest-Grossing Films<br/>of All Time</h1>
+      <p class="hero-subtitle">
+        Explore the biggest blockbusters in cinema history — interactive charts,
+        sortable tables, and deep data insights.
+      </p>
+      <a href="#data" class="hero-cta">Explore the Data</a>
+    </div>
+    <div class="hero-glow"></div>
+  </header>
+
+  <section class="stats-section" id="stats">
+    <div class="container">
+      <h2 class="section-title">Key Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="statTotal">—</span>
+          <span class="stat-label">Total Films</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statRevenue">—</span>
+          <span class="stat-label">Total Revenue</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statAvg">—</span>
+          <span class="stat-label">Average Revenue</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statDirector">—</span>
+          <span class="stat-label">Top Director</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="data-section" id="data">
+    <div class="container">
+      <h2 class="section-title">Film Database</h2>
+
+      <div class="controls">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search by title or director..." />
+        </div>
+        <select id="yearFilter"><option value="">All Decades</option></select>
+        <select id="countryFilter"><option value="">All Countries</option></select>
+        <button id="resetFilters" class="btn-reset">Reset</button>
+      </div>
+
+      <p class="results-info" id="resultsInfo"></p>
+
+      <div class="table-wrapper">
+        <table id="filmsTable">
+          <thead>
+            <tr>
+              <th data-sort="id">#</th>
+              <th data-sort="title">Title <span class="sort-arrow"></span></th>
+              <th data-sort="release_year">Year <span class="sort-arrow"></span></th>
+              <th data-sort="director">Director <span class="sort-arrow"></span></th>
+              <th data-sort="box_office">Box Office <span class="sort-arrow"></span></th>
+              <th data-sort="country">Country <span class="sort-arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="charts-section" id="charts">
+    <div class="container">
+      <h2 class="section-title">Visual Insights</h2>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Top 10 by Box Office</h3>
+          <canvas id="topFilmsChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Films per Decade</h3>
+          <canvas id="decadeChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Revenue by Country</h3>
+          <canvas id="countryChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Revenue Over Years</h3>
+          <canvas id="yearlyChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="filmModal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Data sourced from
+        <a href="https://en.wikipedia.org/wiki/List_of_highest-grossing_films"
+           target="_blank" rel="noopener">Wikipedia</a>.
+        Built for the Data Wrangling &amp; Visualization course.
+      </p>
+      <p class="footer-small">&copy; 2026 DWaV Project</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
